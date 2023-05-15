@@ -1,0 +1,25 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Personas</th>
+            <th>Correo</th>
+            <th>Hora</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dato of lista">
+            <td> {{dato.name }}</td>
+            <td> {{dato.apellido }}</td>
+            <td> {{dato.num}} </td>
+            <td> {{dato.email }}</td>
+            <td> {{dato.hora }}</td>
+            <td> {{dato.fecha | date: 'dd/MM/yyyy' }}</td>
+            <td><button class="btn btn-outline-success" type="submit" (click)="OnClick()">Borrar Citas</button></td>
+            
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,41 @@
+<form [formGroup]="aux" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+  <div>
+    <label for="name">Nombre: </label>
+    <input type="text" [ngClass]="{'is-invalid':!aux.get('name')?.valid}" id="name" name="name" [(ngModel)]="formData.name" required  formControlName="name">
+    <div *ngIf="controls['name'].errors?.['required']" class="invalid-feedback">El nombre es necesario</div>
+    <div *ngIf="controls['name'].errors?.['minlength']" class="invalid-feedback">Por lo menos tres caracteres</div>
+  </div>
+  <div>
+    <label for="name">Apellido: </label>
+    <input type="text" [ngClass]="{'is-invalid':!aux.get('apellido')?.valid}" id="apellido" name="apellido" [(ngModel)]="formData.apellido" required formControlName="apellido">
+    <div *ngIf="controls['apellido'].errors?.['required']" class="invalid-feedback">El apellido es necesario</div>
+    <div *ngIf="controls['apellido'].errors?.['minlength']" class="invalid-feedback">Por lo menos tres caracteres</div>
+  </div>
+  <div>
+    <label for="email">Correo electrónico:</label>
+    <input type="email" [ngClass]="{'is-invalid':!aux.get('email')?.valid }" id="email" name="email" [(ngModel)]="formData.email" required formControlName="email" >
+    <div *ngIf="controls['email'].errors?.['required']" class="invalid-feedback">Correo obligatorio</div>
+    <div *ngIf="controls['email'].errors?.['email']"class="invalid-feedback">El correo no tiene el formato correcto</div>
+  </div>
+  <div>
+    <label for="name">Cantidad de personas: </label>
+     <input type="text" id="num" name="num" formControlName="num" [(ngModel)]="formData.num" required> 
+  </div>
+  <div>
+    <mat-form-field>
+      <input name="fecha" placeholder="Seleccione Fecha" matInput [matDatepicker]="fechaPicker" formControlName="date" required>
+      <mat-datepicker-toggle matSuffix [for]="fechaPicker"></mat-datepicker-toggle>
+      <mat-datepicker #fechaPicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div>
+    <label for="hora">Seleccione Hora</label>
+    <input type="time" name="hora" id="hora" placeholder="00-00" [(ngModel)]="formData.hora" formControlName="hora" required>
+  </div>
+  <button class="btn btn-outline-success" type="submit" [disabled]="aux.invalid">
+    AGENDAR
+    <mat-spinner *ngIf="cargando" diameter="20" color="accent"></mat-spinner>
+  </button>
+</form>
+
+<app-citas></app-citas>

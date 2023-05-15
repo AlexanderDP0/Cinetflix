@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="./assets/Logo.jpeg" height="90px" weight="100px"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link " [routerLink]="['home']" routerLinkActive="active-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['about']" routerLinkActive="active-link">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " [routerLink]="['movies']" routerLinkActive="active-link">Movies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['mansory']" routerLinkActive="active-link">Premieres</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]='search'>
+          <button class="btn btn-outline-success" type="submit" (click)="OnClick()">Search</button>
+        </form>
+        <br>
+      </div>
+    </div>
+  </nav>
